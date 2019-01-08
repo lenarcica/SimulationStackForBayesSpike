@@ -1,0 +1,66 @@
+## we use the BLAS and the LAPACK library:
+##RCPP_INC = c:/Users/ALAN12~1/Documents/R/win-library/R/RCpp/include
+##RCPP_INC2 = C:/Users/ALANLE~1/Documents/R/win-library/2.13.1/Rcpp/include
+
+## BayesSpike MakeVars.win
+
+PKG_LIBS = $(SUBLIBS) $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)  $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "Rcpp:::LdFlags()")
+
+
+S64ARCH1 = /x86_64
+S64ARCH2 = /x64
+S32ARCH = /i386
+
+mFactor = 64
+mRARCH = -march=x86_64
+
+ifeq ($(R_ARCH), $(S64ARCH1))
+	mFactor = 64
+	amRARCH = -march=x86_64
+	mRARCH = -march=x86_64
+	PKG_LIBS = -L$(R_HOME)/bin/x86_64 $(SUBLIBS) $(shell "${R_HOME}/bin/x86_64/Rscript.exe" -e "Rcpp:::LdFlags()") $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)  
+endif
+
+ifeq ($(R_ARCH), $(S64ARCH2))
+	mFactor = 64
+	amRARCH = -march=x64
+	mRARCH = -march=x86_64
+	PKG_LIBS = -L$(R_HOME)/bin/x64 $(SUBLIBS)  $(shell "${R_HOME}/bin/x64/Rscript.exe" -e "Rcpp:::LdFlags()") $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) $(shell "${R_HOME}/bin/x64/Rscript.exe" -e "Rcpp:::LdFlags()")
+endif
+
+ifeq ($(R_ARCH), $(S32ARCH))
+	mFactor = 32
+	mRARCH = -march=i386	
+  PKG_LIBS = -L$(R_HOME)/bin/i386 $(SUBLIBS) $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)  $(shell "${R_HOME}/bin/i386/Rscript.exe" -e "Rcpp:::LdFlags()")
+endif
+	
+#$(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e " ()")
+##PKG_INC =  $(RCPP_INC2) 
+##PKG_CPPFLAGS = $(RCPP_INC2)
+##$(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "Sys.getenv(\"RCPP_INC\")")
+
+##echo  "We'll do architechture $(mRARCH)"
+ 
+# Add source files here
+# EXECUTABLE := vector_add
+# CUDA source files ( compiled with cudacc )
+CUFILES = BayesSpikeCuda.cu
+
+## $(PKG_CXXFLAGS)
+## $(PKG_CXXFLAGS) -L$(PKG_CPPLDFLAG)
+## -L$(PKG_CPPLDFLAG)  $(PKG_CXXFLAGS) 
+
+all: $(SHLIB)
+
+# -L$(R_HOME)/bin/i386   $(R_HOME)/bin $(R_HOME)/bin/i386
+#ATwoLassoObject2014.o: TwoLassoObject2014.h ATwoLassoObject2014.cc
+#	$(CC) -o ATwoLassoObject2014.o -I$(R_HOME) -I$(R_HOME)/include -L$(R_HOME)/bin -c ATwoLassoObject2014.cc
+  
+#ATwoLarsOperatorC2009.o: ATwoLarsOperatorC2009.cc 
+#	$(CC) -o ATwoLarsOperatorC2009.o -c -I$(R_HOME)/include -L$(R_HOME)/bin -O2 -Wall -c ATwoLarsOperatorC2009.cc 
+	
+#ATwoLarsObject2009.o: ATwoLarsObject2009.cc 
+#	$(CC) -o ATwoLarsObject2009.o $(PKG_LIBS) -I$(R_HOME)/include -I$(R_HOME) -O2 -Wall -c ATwoLarsObject2009.cc 
+
+##TwoLassoCpp.dll: ATwoLarsOperatorC2009.o ATwoLarsObject2009.o ATwoLassoObject2014.o CoordinateDescentLasso2014.o HeapSort.o HorseshoeC.o IncidentalOp2009.o CC_EMRIDGE2009.o MyMatrixOp2009.o LarsObject2009.o NEGLasso.o TwoGLMLasso.o
+##	$(SHLIB) -o TwoLassoCpp.dll -L ATwoLarsOperatorC2009.o ATwoLarsObject2009.o ATwoLassoObject2014.o CoordinateDescentLasso2014.o HeapSort.o HorseshoeC.o IncidentalOp2009.o CC_EMRIDGE2009.o MyMatrixOp2009.o LarsObject2009.o NEGLasso.o TwoGLMLasso.o                                                                      

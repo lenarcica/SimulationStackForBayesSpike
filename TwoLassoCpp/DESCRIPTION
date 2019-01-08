@@ -1,0 +1,16 @@
+Package: TwoLassoCpp
+Type: Package
+Title: TwoLasso Penalty Regression using EMLasso
+Version: 0.302
+Date: 2009-05-07 (update 5-30-2014)
+Author: Alan Lenarcic
+Maintainer: <lenarcic@post.harvard.edu>
+Description: Implements TwoLasso Penalty and modfications featurued in chapters
+  1 and 2 of Lenarcic "Two-Lasso Bayesian Adaptation to Study Financial 
+  Contagion".  Also implements simulations and metrics to gauge 
+  quality of simulation scores.
+License: R Public License
+LazyLoad: yes
+Depends: lars, corpcor, Rcpp
+LinkingTo: Rcpp
+Packaged: 2010-11-25 16:59:58 UTC; Alan Lenarcic

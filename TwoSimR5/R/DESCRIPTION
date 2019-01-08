@@ -1,0 +1,12 @@
+Package: TwoSimR5
+Type: Package
+Title: TwoSim Materials to run Parrallel Simulations in concert
+Version: 0.26
+Date: 2012-03-13
+Author: Alan Lenarcic
+Maintainer: <lenarcic@post.harvard.edu>
+Description: Implements Code to test TwoLasso and various Penalties on parallel machines
+License: R Public License
+LazyLoad: yes
+Depends: lars; corpcor
+Packaged: 2013-03-10 04:20:05 UTC; AlanX230

@@ -1,0 +1,10 @@
+
+##useDynLib(TwoSim)
+exportPattern("^[[:alpha:]]+")
+
+
+##useDynLib(BayesSpike)
+##exportPattern("^[[:alpha:]]+")
+##import( Rcpp )
+##importClassesFrom( Rcpp, "C++ObjectS3", "C++Object", "C++Class", "Module" )
+

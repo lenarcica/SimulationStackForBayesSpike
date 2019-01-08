@@ -1,0 +1,4 @@
+
+useDynLib(TwoLassoCpp)
+exportPattern("^[[:alpha:]]+")
+import( Rcpp )

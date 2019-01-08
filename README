@@ -1,0 +1,7 @@
+Two R packages for the price of One!
+
+Code by Alan Lenarcic 2009-2018
+
+TwoSimR5: A package for performing sparse regressin simulations over a lsf server like Harvard Odyssey or UNC Killdevil.  Test many implementatins of many regressors in multiple information settings.  Play with covariance structure.  
+
+TwoLasso Implementation: Implementation of a "crude hack" that converts a lasso penalty into a non-convex estimator that improves upon the removal of noise statistics.  This estimator shows how to use coordinate descent with EM to generate a quick denoising.
