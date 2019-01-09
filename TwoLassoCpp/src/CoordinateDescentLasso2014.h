@@ -1,3 +1,35 @@
+/* ========================================================================== */
+/*                                                                            */
+/*   CoordinateDescentLasso2014.h                                             */
+/*   (c) 2010 Alan Lenarcic                                                   */
+/*                                                                            */
+/*   Here we follow the material from Friedman and Tibshirani Coordinate      */
+/* descent paper (orinal paper is in fortran), and design an object that      */
+/* the essential vectors for Coordinate Descent Lasso.                        */
+/* We attempt to do some flexible memory modelling so that XTX does not get   */
+/* too large or coordinates that proved to be useless after iterations do not */
+/* later impact speed of the algorithm.                                       */
+/* We need to be able to construct data for both linear and GLM cases.        */
+/* The "CoordinateDescentObject" class is defined here and contains the       */
+/* most important data.                                                       */
+/* ========================================================================== */
+/******************************************************************************/
+//// LICENSE INFO: C CODE
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  A copy of the GNU General Public License is available at
+//  https://www.R-project.org/Licenses/
+//
+/******************************************************************************/
+
 #ifndef RMATH
   #include <Rmath.h>
   #include <R.h>

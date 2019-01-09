@@ -1,9 +1,17 @@
 \name{TwoLassoCpp}
 \alias{TwoLassoCpp}
+\alias{TwoLassoCppFunction}
+\alias{twolassocpp}
+\alias{2lassocpp}
+\alias{2LassoCpp}
+\alias{TwoLasso}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ TwoLassoCpp Function for producing Cpp objects. }
+\title{ Main TwoLassoCpp Function for producing Cpp objects and running algorithm. }
 \description{
-   Allocates a TwoLassoCpp Class and Runs the regression
+\code{TwoLassoCpp()} a method that
+   Allocates a TwoLassoCpp Class and Runs the regression.
+   
+   See \code{\link{TwoLassoCpp-package}} for info on package materials.
 }
 \usage{
 TwoLassoCpp(

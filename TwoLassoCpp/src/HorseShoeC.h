@@ -1,11 +1,32 @@
 /* ========================================================================== */
 /*                                                                            */
 /*   HorseshoeC.h                                                               */
-/*   (c) 2010 Alan Lenarcic                                                          */
+/*   (c) 2010 Alan Lenarcic                                                   */
 /*                                                                            */
-/*   h File for HorseShoe Integration                                                              */
-/*                                                                            */
+/*   h File for HorseShoe Integration                                         */
+/*   Used to Integrate Lambdaj Densities                                      */
+/*     This attempt to implement Horseshoe is not very good and it would  be  */
+/*     recommend users look into users of TwoSimR5 for more professional      */
+/*     versions of this estimator.                                            */
+/*  In this implementation a n attempt to ingtegrate to do the penalty doesn't*/
+/*    quite work as well as hoped.                                            */
 /* ========================================================================== */
+/******************************************************************************/
+//// LICENSE INFO: C CODE
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  A copy of the GNU General Public License is available at
+//  https://www.R-project.org/Licenses/
+//
+/******************************************************************************/
 
 
 #ifndef RMATH

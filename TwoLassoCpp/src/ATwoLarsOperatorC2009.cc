@@ -1,3 +1,35 @@
+/* ========================================================================== */
+/*                                                                            */
+/*   ATwoLarsOperatorC2009.cc                                                 */
+/*   (c) 2009-2019 Alan Lenarcic                                              */
+/*                                                                            */
+/*   This code is mostly extern statements used for 2Lasso->LARS implement    */
+/*    as well as several other prototype algorithms.  However, RCpp interface */
+/*    to Object class material is more convenient.  So much of this code      */
+/*    is deprecated to "Cpp" versions of algorithms.                          */
+/*                                                                            */
+/*   This code shows how to write .Call functions that are available at       */
+/*    R prompt and installs them with "R_CallMethodDef"                       */
+/*    as named methods to the shell prompt.                                   */
+/* ========================================================================== */
+/******************************************************************************/
+//// LICENSE INFO: C CODE
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  A copy of the GNU General Public License is available at
+//  https://www.R-project.org/Licenses/
+//
+/******************************************************************************/
+
+
 #ifndef RMATH
   #include <Rmath.h>
   #include <R.h>

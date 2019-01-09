@@ -1,10 +1,17 @@
+###############################################################################
+##  RunSeekScriptFile
+## 
+##  This function runs one thread with "RunAProcessExperiment()" as the major
+##   function that runs a statistical estimator against a simulation.
+##
+## 
 ## R --vanilla --args GroupLongTestn100p1000.r 1 1 1 1 1 < RunSeekScriptFile.r
 ## R --vanilla --args PracticeTestn100p100.r 1 1 1 1 1
 library(TwoSimR5);
 TwoSimR5:::ScriptGetArgs();
 CheckUniqueProcessIdentifier();    ## In 2LassoSaveRoutines.$
 
-try(library(TwoLassoCpp, warn.conflicts=FALSE, quietly=TRUE), silent=TRUE);
+##try(library(TwoLassoCpp, warn.conflicts=FALSE, quietly=TRUE), silent=TRUE);
 
 TwoSimR5:::ScriptGetArgs();
 

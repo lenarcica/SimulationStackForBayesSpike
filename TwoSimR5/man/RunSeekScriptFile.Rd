@@ -22,6 +22,10 @@ library(TwoSimR5)
   \item{RunAProcessExperiment}{This code runs estimator run and conducts basic testss. It is a part of \code{2LassoMaster}.}
 }
 \details{
+ The "RunSeekScriptFile" is an R script that prepares an R instance opened as a thread in LSF.  This thread will identify which
+ Estimator and simulation it is assigned.  It then runs \code{RunAProcessFile()} on this combo to generate a fit and then asses the performance.
+ 
+ 
  Some attempt was made to use "R5" objects to improve object oriented coordination in this module.
  
  Please see \code{\link{0001AAAEfficientSimulator.r}} and \code{\link{0008AAAGroupEfficientSimulator.R}} for code that is detects elements of

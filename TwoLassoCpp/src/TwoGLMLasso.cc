@@ -1,11 +1,43 @@
 /* ========================================================================== */
 /*                                                                            */
-/*   TwoGLMLasso.cc                                                               */
-/*   (c) 2010 Alan Lenarcic                                                          */
+/*   TwoGLMLasso.cc                                                           */
+/*   (c) 2010 Alan Lenarcic                                                   */
 /*                                                                            */
-/*   TwoLasso for Logistic Regression                                                   */
+/*   TwoLasso for Logistic Regression                                         */
+/*       Work with Edoardo Airoldi Lab                                        */
+/*                                                                            */
+/*       Work accompanies effort by Lenarcic and Valdar on BayesSpike         */
+/*       This is a companion algorithm using Coordinate Descent and EM        */
+/*       to generate Model Inclusion Probability estimates and credibility    */
+/*       without using Gibbs Sampling Integration.                            */
+/*                                                                            */
+/*                                                                            */
+/*    This extends TwoLassoSEXP object to perform GLM-Binomial Coordinate     */
+/*  Descent.  Performance of TwoLasso seems noticably less when dealing       */
+/*  with binomial data, and there is significant information lost in 0/1      */
+/*  versus continuous Ydata.                                                  */
+/*  continuous Y data.                                                        */
+/*                                                                            */
+/*   Description                                                              */
 /*                                                                            */
 /* ========================================================================== */
+
+/******************************************************************************/
+//// LICENSE INFO: C CODE
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  A copy of the GNU General Public License is available at
+//  https://www.R-project.org/Licenses/
+//
+/******************************************************************************/
 #ifndef TWOGLMLASSODD
    #include "TwoGLMLasso.h"
    #define TWOGLMLASSODD 0

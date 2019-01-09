@@ -1,9 +1,11 @@
 /* ========================================================================== */
 /*                                                                            */
-/*   HeapSort.h                                                            */
-/*   (c) 2010 Author                                                          */
+/*   HeapSort.h                                                               */
+/*   (c) 2010 Alan Leanrcic                                                   */
 /*                                                                            */
-/*   Experiment in sorting XTResid in order                                                             */
+/*   Experiment in sorting XTResid in order                                   */
+/*   Code modified from Numerical Recipes in C.                               */
+/*   There is probably an extended C++ library function better for this.      */
 /*                                                                            */
 /* ========================================================================== */
 

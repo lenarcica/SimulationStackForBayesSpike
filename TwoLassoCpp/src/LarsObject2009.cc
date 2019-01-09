@@ -1,4 +1,31 @@
-
+/* ========================================================================== */
+/*                                                                            */
+/*   LarsObject2009.cc                                                        */
+/*   (c) 2009 Alan Lenarcic                                                   */
+/*                                                                            */
+/*   C code experimenting with LARS as alternative algorithm to Coordinate    */
+/*    Descent.  The LARS algorithm grows from zero at half angles until       */
+/*    reaching a penalization specification.  For very small covariate sets   */
+/*    this can be efficient, however, with 2 Lasso the algorithm needs to be  */
+/*    repeated frequently, and the information from previous solution is more */
+/*    valuable in performing later steps than a LARS that starts from scratch.*/
+/* ========================================================================== */
+/******************************************************************************/
+//// LICENSE INFO: C CODE
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  A copy of the GNU General Public License is available at
+//  https://www.R-project.org/Licenses/
+//
+/******************************************************************************/
 #ifndef LARSOBJECTDD
   #include "LarsObject2009.h"
   #define LARSOBJECT2009DD 0

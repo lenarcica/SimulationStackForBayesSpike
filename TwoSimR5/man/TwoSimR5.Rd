@@ -18,7 +18,8 @@
   
   At this point, the vast majority of estimators come from 3rd party packages considered
   canoncial versions of a simulation method.  But many selection criteria
-  (for instance WLT for SCAD), or DIC, needed to generated in code.
+  (for instance WLT for SCAD), or DIC, it was needed to manually write the method to generate in these
+  results.
 }
 \usage{
 library(TwoSimR5)

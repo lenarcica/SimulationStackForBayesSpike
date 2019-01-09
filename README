@@ -5,3 +5,20 @@ Code by Alan Lenarcic 2009-2018
 TwoSimR5: A package for performing sparse regressin simulations over a lsf server like Harvard Odyssey or UNC Killdevil.  Test many implementatins of many regressors in multiple information settings.  Play with covariance structure.  
 
 TwoLasso Implementation: Implementation of a "crude hack" that converts a lasso penalty into a non-convex estimator that improves upon the removal of noise statistics.  This estimator shows how to use coordinate descent with EM to generate a quick denoising.
+
+To run these packages, in command prompt or bash, when in the parent directory,  the common command to create a tar-ball
+
+R CMD BUILD TwoSimR5
+R CMD BUILD TwoLassoCpp
+
+
+To install, given R tools is installed on windows
+
+R CMD INSTALL TwoSimR5_XXXX.tar.gz
+R CMD INSTALL TwoLassoCpp_XXXX.tar.gz
+
+for XXXX version of package.  RCpp is required for TwoLassoCpp.
+
+
+"RunSimulation" directory:
+For running TwoSimR5 on a LSF server like Kill devil the files in "RunSimulation" directory give the script files that boot up TwoSimR5 and do the the processes of making simulations, running estimator fits, collating information, and saving results RData.

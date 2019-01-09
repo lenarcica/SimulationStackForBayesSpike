@@ -1,11 +1,40 @@
 /* ========================================================================== */
 /*                                                                            */
-/*   TwoLassoObject2011.cc                                                    */
-/*   (c) 2011 Alan Lenarcic                                                   */
+/*   ATwoLassoObject2014.cc                                                   */
+/*   (c) 2009-2019 Alan Lenarcic                                              */
+/*       Work with Edoardo Airoldi Lab                                        */
 /*                                                                            */
-/*   Code using SEXPs to implement TwoLasso algorithm                         */
+/*       Work accompanies effort by Lenarcic and Valdar on BayesSpike         */
+/*       This is a companion algorithm using Coordinate Descent and EM        */
+/*       to generate Model Inclusion Probability estimates and credibility    */
+/*       without using Gibbs Sampling Integration.                            */
 /*                                                                            */
+/*   TwoLasso code that takes advantage of SEXPS in RCpp format               */
+/*                                                                            */
+/*   This is the main ".cc" code for the main 2Lasso algorithm.               */
+/*   Class Object "TwoLassoSexp" is declared and it is the easiest R console  */
+/*   accesibile object using RCpp modules interface.                          */
+/*   Calling "TwoLassoRegression()" should generate TwoLassoSexp and launch   */
+/*   algorithm.                                                               */
 /* ========================================================================== */
+
+/******************************************************************************/
+//// LICENSE INFO: C CODE
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  A copy of the GNU General Public License is available at
+//  https://www.R-project.org/Licenses/
+//
+/******************************************************************************/
+
 
 #ifndef TWOLASSO2011
   #include "TwoLassoObject2014.h"

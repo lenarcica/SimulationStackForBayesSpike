@@ -1,3 +1,14 @@
+/* ========================================================================== */
+/*                                                                            */
+/*   HeapSort.h                                                               */
+/*   (c) 2010 Alan Leanrcic                                                   */
+/*                                                                            */
+/*   Experiment in sorting XTResid in order                                   */
+/*   Code modified from Numerical Recipes in C to make index sort.            */
+/*   There is probably an extended C++ library function better for this.      */
+/*                                                                            */
+/* ========================================================================== */
+
 #ifndef HEAPSORTH
   #define HEAPSORTH 1
   #include "HeapSort.h"

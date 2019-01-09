@@ -32,6 +32,16 @@ library(TwoSimR5)
   it is run everytime.  It is a part of \code{2LassoMaster} file.}
 }
 \details{
+  The "RunMakeScriptFiles.r" both generates a number (say 100-1000) of simulations using a \code{\link{SimMeData}}
+   and then randomly assigns thread ids and estimators in such away that a call to \code{\link{RunSeekScriptFile}} executes estimation
+   on data. Also this script, after the threads have finished, makes a measurement of how many threads completed, and then reallocates
+   to new threads who can ideally finish missed estimations.  After cycling MakeScript and SeekScript a few times, ideally all
+   estimators have completed and have been determined to be successes or failures and simulation performance can compare the many
+   estimators performed.  
+   
+   There are many estimators defined and offered in \code{\link{0001AAAEfficientSimulator}}, and each of these could have different
+   possible parameter inputs.
+
  Some attempt was made to use "R5" objects to improve object oriented coordination in this module.
  
  One of the mose important objects is "\code{\link{SMS}}" or result from \code{\link{SimMeData}}() which stores a simulations object and relevant

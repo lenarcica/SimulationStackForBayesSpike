@@ -10,6 +10,10 @@ A \code{\link[Rcpp]{Rcpp}} package using Two Lasso objects.  Uses Coordinate des
 to dynamically solve for 2 prior selection comparison.  Essentially a fixed point approximation
 for methods used in package \code{\link[BayesSpike]{BayesSpike}} which is a MCMC integrative package.
  
+ See \code{\link{TwoLassoCpp}()} for info on the main Two Lasso function to call.
+ 
+ Code exists in this package on advice to other possible approaches and other attempts at implementing TwoLasso
+ with Coordinate Descent or other approaches.
 }
 \description{
 Implementation of TwoLasso, LimitLasso and related algorithms
