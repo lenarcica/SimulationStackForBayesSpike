@@ -1,0 +1,12 @@
+
+#BSUB -u alenarc@med.unc.edu
+
+#BSUB -M 20 
+#BSUB -o /ms/home/a/l/alenarc/NoisyGGMDir/GraphDNN.out
+#BSUB -e /ms/home/a/l/alenarc/NoisyGGMDir/GraphDNN.err
+#BSUB -q week 
+#BSUB -J "BayesScriptPractice[1-2]"
+
+PARAMFILE=LongerTestsTabPaper.R
+
+bash ~/TR5Script//RunAugust2013//N500pG10000kG6sigp5piSV3sigSV3/RBayesAlgorithmGroupLongTestn500p10000${LSB_JOBINDEX}.txt

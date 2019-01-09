@@ -1,5 +1,31 @@
+###############################################################################
+##  MasterHelperFunctions.r  -- Alan Lenarcic
+##
+##    01-12-10 - 2019
+##     These are functions used run simulations and loop through Estimators for
+##   trial.  Each LSF thread does a unique estimator*simulation combination
+##   and these threads continue to run until every estimator finished every simulation.
+##
+##
 
-        
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.  
+
 UpdateNameFunctions <- function() {
   if (OnSimType %in% c("Group", "GroupRobit", "GroupLogit") || grepl("Group", OnSimType)[1] == TRUE) {
     if (exists("DefaultAllGroupFunctions", env=globalenv())) {

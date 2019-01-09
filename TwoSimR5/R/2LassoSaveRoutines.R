@@ -1,6 +1,13 @@
 ################################################################################
 ##  2LassoSaveRoutines
 ##
+##  (c) 2009-2019 by Alan Lenarcic
+##    Written in lab of William Valdar, UNC Genetics
+##    used to conduct simulations on UNC Killdevil LSF server to perform
+##    simulations in many parameter settings and save material to
+##    disk setup on server.
+##
+##
 ##  A "TableCompareSaver" object attempts to read information from the
 ##  save files directoires, which will be saved as RData (version 0.01 on)
 ##
@@ -14,6 +21,24 @@
 ##
 ##
 ##
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.  
 
 try(library(methods, warn.conflicts = FALSE, quietly=TRUE), silent=TRUE);
 try(library(R.methodsS3, warn.conflicts=FALSE, quietly=TRUE), silent=TRUE); 

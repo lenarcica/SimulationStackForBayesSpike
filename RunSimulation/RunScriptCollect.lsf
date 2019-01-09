@@ -1,0 +1,12 @@
+
+#BSUB -u alenarc@med.unc.edu
+
+#BSUB -M 20 
+#BSUB -o /netscr/alenarc/TwoSimR5Print/ShowOutFromTests.out
+#BSUB -e /netscr/alenarc/TwoSimR5Print/ShowOutFromTests.err
+#BSUB -q hour 
+#BSUB -J "BayesScriptCollect[1-48]"
+
+PARAMFILE=LongerTestsTabPaper.R
+
+R --vanilla --args GroupLongTestn1000p100000.r ${LSB_JOBINDEX} 1 1 1 1 1 1 1 < ~/SpikeTest/CollectSimulationResults.r

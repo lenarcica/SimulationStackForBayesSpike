@@ -1,9 +1,10 @@
 ###############################################################################
 ##  TwoSimR5CompellingElements
 ##
+##   (c) 2009-2014 Alan Lenarcic
 ##    The following attempts to Record and describe the names of important elements of TwoSimR5
 ##
-##
+##    Does not appear to do much work
 ##
 
 ## OriginalDir:  Overall Directory where sims will be saved to

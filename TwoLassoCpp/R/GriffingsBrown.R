@@ -1,4 +1,19 @@
-
+#############################################################################
+##  2009-2011 Alan Lenarcic
+##
+##     Implementation of this alternate estimator as requested by a suggestion
+##  from outside request, did not quite achieve what it was hoped to.
+##  Using Coordinate descent against an integrated penalty proved to require
+##  a bit more intuition than the Bayesian EM version used in other penalties.
+##  It is believed that a continuous implementation of a psy function
+##  would make the work on this estimator easier
+##
+##    In any case, this estimator had multiple free parameters, and such
+##  the method to conduct cross validation did not have success.
+##  Cross validation likely requires more experience from using east estimator
+##  to better search relevant space for anestimator.
+##
+## 
 SaveDataOnce <- function(OnLambda, OnGammaSq) {
    MyDirs = unlist(searchpaths());
    if (any( substr(MyDirs, nchar(MyDirs) - nchar("TwoLasso")+1, nchar(MyDirs))

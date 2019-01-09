@@ -1,3 +1,48 @@
+################################################################################
+##
+##   TwoLassoSexp.R
+##
+##  (c) Alan Lenarcic 2009-2019:
+##      Work for Lab of Edoardo Airoldi, Harvard Statistics
+##      Work completed in lab of William Valdar, UNC Genetics and used
+##      to help make comparison code in Lenarcic and Valdar paper against
+##      methods such as those implemented around Arg-max estimators like 2Lasso
+##    
+##      It was found that although GroupBayes->"BayesSpike" was competitive
+##      and similar to leading Argmax penalties, that 2Lasso is similarly very
+##      competitive and thus Gibbs sampler approaches do not necessary
+##      reject the value of arg-max methods.
+##
+##   .Call interfaces for TwoLasso, using "R.oo" turned into R5 native R
+##    object clases.
+##
+##   This contains  "Two2LassoCpp"() R function which is the secondar implementation
+##     of TwoLasso using R5 and having adaptations for Group selection and Credibility
+##     intervals.  Even though 2Lasso's group penalty was crude, it seemed to have
+##     reasonable performance. However, 2Lasso credibility intervals leave much to
+##     be desired and do not appear to be a reasonable way to measure Beta variability.  
+##
+##
+##
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.               
+
   try(library(methods, warn.conflicts = FALSE, quietly=TRUE));
   try(library(R.methodsS3, warn.conflicts=FALSE, quietly=TRUE)); 
   try(library(R.oo, warn.conflicts=FALSE, quietly=TRUE));

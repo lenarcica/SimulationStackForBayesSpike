@@ -1,10 +1,14 @@
-##### Change IntiateS string names depending on interest in the named active vector.
-
-
-
-
-##   Key Algorithm for paper is "EM2Lasso"
-##     This uses dll TwoLarsOperatorProgram.dll
+################################################################################
+##
+##   TwoLarsDirected.R
+##
+##  (c) Alan Lenarcic 2009-2010:
+##
+##  Work primarily from Alan Lenarcic's 2009 thesis research, and this is the
+##  package code that was used at that time.  Some of this is to run simulation
+##  code and attempt to compare estimators, both implemented in this package
+##  and elsewhere.
+##
 ##
 ##     This uses files  
 ##         TwoLarsObject.cc,  LARSObject.cc, CoordinateDescentObject.cc,
@@ -19,6 +23,46 @@
 ##      is for plotting, running, and saving many simulations of regression
 ## 
 ##     ## Other code is avi
+##   R wrapper functions for TwoLassoCpp Package
+##
+##   This contains TwoLassoCpp() R function which is the main function
+##    for processing calling TwoLasso functions in 2011+ version of package.
+##   This shows Rcpp Modules interface to access object fields from R prompt.
+##  
+##   .onLoad() is the on package "library(TwoLassoCpp)" declarations.
+##   .onAttach() is for re-attach purposes.
+##
+##   There are many default parameters that need to be set 
+##    (or can be taken from current Environment)
+##
+##   As a warning, my  GetG0Text(), SetGText() functions are functions
+##    designed to write and lock functions and variables both to globalenv()
+##    and TWOLASSONAMESPACE environments.  This uses an "eval(parse(text=))"
+##    interface to write code and lock it inside a function.
+##
+##
+##      Alan Lenarcic 10/30/2013
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.                                    
+
+
+
 DeclareGlobals <- function() {
   Verbose = 3;
   if (Verbose >= 1) {

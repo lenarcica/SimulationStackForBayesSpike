@@ -1,7 +1,54 @@
-## RunAProcessExperiment 
+################################################################################
+## RunAProcessExperiment in ProcessRunFile.r 
+##  (c) Alan Lenarcic 2009-2019
+##
+##  RunAProcessExperiment() run a estimator(by "FunctionName") against a simulation contained in "SMSName"
+##   The estimator is fit against the data and then assessments of performance are conducted and the results
+##   saved to disk in a separate file and directory so that the next time RunAProcessExperiment is run
+##   it knows that the result does not need to be run.
 ##
 ## This will try to run an estimator on a given dataset and conclude selection properties.
+##   The TwoSimR5 approach to conducint simulations is
+##     1. Decide upon which N_M estimators to use in a problem, install functions
+##      through EfficientSimulator and declare parameter settings with DeclareAllTstFunctions
+##     2. Define a simulation (n,p,k, sigma, covarianceX, size of Beta...)
+##     2. Simulate N_S 500-1000 indepenent simulations from t  (AssessFirstTime() which runs "SimMeData()" as needed)
+##     3. RunAProcessExperiment()" Open N_M * (N_S/N_divisor) threads on Killdevil to attempt to solve each simulation with each estimator
+##        (Killdevil requires 1 minute or more processes with 1 hour kill time, so some threads will solve many problems,
+##           so each thread gets to solve multiple randomly picked estimator sand simulation problems)
+##        Each solution must:
+##          a. fit the estimator
+##          b. Assess the L1, L2, etc error of the estimator
+##          c. Assess Credibility or Model Inclusion performance if applciable
+##          d. Save results on this estimator somewhere to remind program to not rerun.
+##     4. Rerun threads when an estimator may have failed due to a timeout or memory error thus every
+##       estimator gets at least two chances to complete a run.  Most time they don't need any, but sometimes
+##       a problem is begun right before a 1 hour timeout.  As problems get larger certain R packages hit
+##       memory limits, and this gives us a chance to double check.
+##     5.Collect the results of all of these simulations by estimator
+##     6.Produce Latex usable tables of results or other interesting RData.   
+##
+##
 
+
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.  
 RunAProcessExperiment =  function(SMSName, FunctionName, verbose = -1, DoCI = DefaultDoCI, 
     ForceAFail=FALSE, ...) {
   eval(parse(text=InitiateEvaluations()));

@@ -1,6 +1,15 @@
+################################################################################
 ##AccesOperatingSimulation.r
 ##
-## Following does not seem to be used.  Alan
+##  (c) 2009-2019 by Alan Lenarcic
+##    Written in lab of William Valdar, UNC Genetics
+##    used to conduct simulations on UNC Killdevil LSF server to perform
+##    simulations in many parameter settings and save material to
+##    disk setup on server.
+##
+## The following does not seem to be used and was "FALSE"d out before
+##   the writing of this comment and was not active in simulations.  Alan
+## 
 ##
 if (FALSE) {
 LockSMSFile <- function(SMS, CurrentContainDir, OnFunction, verbose=0) {

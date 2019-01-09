@@ -1,7 +1,29 @@
 ###############################################################################
 ##  EfficientSimulator  -- Alan Lenarcic
 ##
-##    01-12-10
+##    01-12-10 - 2019
+##
+##   There are many estimators in R for sparse fixed model selection, and
+##   this code is intended to try and unify the input formats across a number
+##   of estimators.  All of these estimators were current as of the last
+##   time I had access to UNC Killdevil in Summer 2017.  However,
+##   not all estimator results were used in Lenarcic and Valdar paper, mostly
+##   because better or more canonical examples produced similar results.
+##   Clearly, this covers only a tiny subset of available options, but
+##   a purpose of this was to focus on Bayesian and Penalized estimators
+##   which had a sparse setting, and to look specifically in Type 1 Type 2 
+##   performance when the Beta versus noise setting was .25 up to 2.5.
+##   All of these would be R packages with implementations sufficient for single
+##   thread analyses, and no need for CUDA or multi-thread to compete. At the
+##   time of the TwoSimR5 development (2010-2016), most methods fell into this category.
+##
+##   While it is hopeful that code like these simulations could help other
+##    projects doing simulation performance tests in some other region of
+##    the p,n,k,sigma,Beta,Cov(X), etc. choices every group likely has
+##    a different region of interest and specialty, and TwoSimR5 seems
+##    to demonstrate a role for all of these estimators, depending on the
+##    location of noise space one belongs to, as well as the amount of prior
+##    information one can come into the experiment holding.
 ##
 ##    Helper File for 221 project
 ##
@@ -40,8 +62,29 @@
 ##     possibly getting in a publication.
 ##
 ##   
+
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.  
 BetaStart <<- 0;
 
+
+  ## Covers the possible R packages that should be installed to get best use out of TwoSim.
 ## source("c://Stat//2008Summer//LarsProject//Code//EfficientSimulator.R");
 ## source("C://Stat//2008Summer//LarsProject//TwoLassoPackage//ablocker_ps2//jtermFDL//jtermFDL//EfficientSimulator.R")
    try(library(lars, warn.conflicts=FALSE, quietly=TRUE), silent=TRUE);

@@ -1,3 +1,19 @@
+################################################################################
+## LSTestExperimentSimCode
+##
+## Nonactive simulation code
+##
+##  SimData22()
+##    Old code on simulating data and estimating, implemented with help of
+##  Alex Blocker and extended by Alan Lenarcic 
+## at Harvard University Statistics Department and other
+##  members of Edoardo Airoldi Lab.  This is a Phase plane simulation of data and
+##  is concerned with finding phase space transitions as theorized for the Lasso
+##  estimator
+##
+##  Other methods:
+##  Extended work using R5 methods didn't become very useful for the TwoSimR5 package
+##   but illustrate
 TwoSimLoadIn <- function() {
   ##MyColNames = c("PiD", "l1error", "l2error", "Type1", "Type2", "L.zero", "time1", "time2", "time3") 
   MyColNames = c("l1error", "l2error", "Type1", "Type2", "L.zero", "time1", "time2", "time3") 
@@ -54,6 +70,26 @@ SimMeData22 <- function(n, p, k, sigma) {
 lnorm <- function(x,p) {
 sum(abs(x)^p)^(1/p)}
 
+## Code below (c) Alan Lenarcic 2009-2019
+## LICENSE INFO: UNUSED R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.
+#  Eventually it was decided that this approach to assessing fits was unnecessarily
+##  complex given the LSF setting that requires many open threads with atomic access. 
 
 TableCompareSaverR5$methods(
    AssessMIPFit = function(SMS, FittedOb,

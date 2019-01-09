@@ -1,4 +1,42 @@
+################################################################################
 ## CrossValidatorTwoLasso;
+##
+##  (c) Alan Lenarcic 2009-2019
+##   This code is written to perform Cross Validation in one or more dimensions
+##  both for 2 Lasso and other related algorithms that may want learning
+##  parameters supplied through a Cross Validation scheme.
+##  
+##   Unfortunately, this does not seem to be a very efficient implementation,
+##  It is recommended that users look into other implementations for SCAD
+##  or such, since Cross Validation, which requires repeated fits of the data
+##  at subtle changes to the paramter values over a sufficiently wide space.
+##  For 2 Lasso it is important that each fit seeds the next fit, because 
+##  the current settings of the model are useful to inform a model with
+##  slightly changed PiA.  However, given that changing lambdaD-lambdaA
+##  could introduce discontinuities into the model, there is a possibility 
+##  for a discontinuous jump in models when the parameters are pulled
+##  past an intersection point.  It is possible for the algorithm to then
+##  be stuck in local and not global modes.
+##
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.
+
 FastCFoldValidate2Lasso <- function(X,Y, DoLogit=FALSE, nPi=20, nSigma=10, cFolds =5,
   OrderSeq = c(20,4,1), SABS=.05, MaxCauchy = 100, CauchyEpsilon = .00001,
   Verbose = 0) {

@@ -1,3 +1,58 @@
+################################################################################
+## 2LassoMaster.r
+##
+##
+##  Master file for TwoSimR5.
+##
+##     (c) 2009-2019 Alan Lenarcic
+##     The code was written to support simulations for Lenarcic and Valdar methods
+##      paper.
+##
+##     This work begain in lab of Edoardo Airoldi to attempt simulations to rate
+##     "2Lasso" penalty, but became a larger project for Bayesian and ArgMax penalties
+##
+##    2LassoMaster gives "AssessFirstTime" which is an algorithm run to get Estimators to fit.
+##
+##   The TwoSimR5 approach to conducint simulations is
+##     1. Decide upon which N_M estimators to use in a problem, install functions
+##      through EfficientSimulator and declare parameter settings with DeclareAllTstFunctions
+##     2. Define a simulation (n,p,k, sigma, covarianceX, size of Beta...)
+##     2. Simulate N_S 500-1000 indepenent simulations from t
+##     3. Open N_M * (N_S/N_divisor) threads on Killdevil to attempt to solve each simulation with each estimator
+##        (Killdevil requires 1 minute or more processes with 1 hour kill time, so some threads will solve many problems,
+##           so each thread gets to solve multiple randomly picked estimator sand simulation problems)
+##        Each solution must:
+##          a. fit the estimator
+##          b. Assess the L1, L2, etc error of the estimator
+##          c. Assess Credibility or Model Inclusion performance if applciable
+##          d. Save results on this estimator somewhere to remind program to not rerun.
+##     4. Rerun threads when an estimator may have failed due to a timeout or memory error thus every
+##       estimator gets at least two chances to complete a run.  Most time they don't need any, but sometimes
+##       a problem is begun right before a 1 hour timeout.  As problems get larger certain R packages hit
+##       memory limits, and this gives us a chance to double check.
+##     5.Collect the results of all of these simulations by estimator
+##     6.Produce Latex usable tables of results or other interesting RData.   
+##
+##
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.
+
 
 ##  AssessFirstTime is run by a RunSeekScriptMake.r file
 ##

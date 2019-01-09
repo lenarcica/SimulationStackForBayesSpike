@@ -1,0 +1,14 @@
+
+#BSUB -u alenarc@med.unc.edu
+
+#BSUB -M 12 
+#BSUB -o /netscr/alenarc/TwoSimR5Print/ShowOutFromTests.out
+#BSUB -e /netscr/alenarc/TwoSimR5Print/ShowOutFromTests.err
+#BSUB -q day 
+#BSUB -J "BayesScriptPractice[1]"
+
+PARAMFILE=LongerTestsTabPaper.R
+
+bash
+R --vanilla --args GroupLongTestn500p10000.r 1 1 1 1 1 1 1 1 < RunMakeScriptFiles.r 
+

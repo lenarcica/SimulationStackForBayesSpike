@@ -1,3 +1,10 @@
+###############################################################################
+## CollectIntoTable.r
+##    (c) 2009-2019 Alan Lenarcic
+##
+## End of analysis functions that take saved simulation results and generates
+## figures prints and files.
+##
 CollectIntoTable <- function(OrderedRhos, OrderedSigmas, 
   NeedColumns, WantLines = LocateLines, WantBreaks= NULL, RDSigFig = 3) {
 

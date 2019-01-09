@@ -1,3 +1,31 @@
+################################################################################
+## DefineMySummaryList.r
+##    (c) 2009-2019 Alan Lenarcic
+##
+##  Code related to unsuccessful attmempt to use Reference classes to do non-atomic work
+##  Since simulation on the LSF framework is more subject to Hard disk conflicts, network shutdowns,
+##  timeout errors, etc, it is not a good idea to overly produce Master functions.
+##
+##  Hence, method outlined in "2LassoMaster.r" was determined to be superior simulation methodology.
+
+## LICENSE INFO: UNUSED R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.
+
 MyFunctionRecord = setRefClass("MyFunctionRecord")
 
 if (FALSE) {

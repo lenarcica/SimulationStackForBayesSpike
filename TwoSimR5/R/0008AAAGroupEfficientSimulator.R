@@ -1,12 +1,97 @@
 ###############################################################################
-## 0008AAAGroupEfficientSimulator.R
+##  0008AAAGroupEfficientSimulator.R
+##    R scripts for Group methods used in TwoSimR5
 ##
-##    Alan Lenarcic 11/1/2013
+##   (c) Alan Lenarcic 2009-2019
+##     Written for simulation work related to methods paper for Valdar Lab, UNC Genetcis
 ##
 ##  These are the commands in TwoSimR52 that take the information in a "SMS"
 ##   object and then run the following algorithms to produce an estimator
 ##   based upon a group selection hypothesis.  This includes grpreg, grplasso, etc.
 ##
+##   This is for "Grouped Effects" methods in the way "EfficientSimulator" is for Fixed effects.
+##
+##   There are many estimators in R for sparse group model selection, and
+##   this code is intended to try and unify the input formats across a number
+##   of estimators.  All of these estimators were current as of the last
+##   time I had access to UNC Killdevil in Summer 2017.  However,
+##   not all estimator results were used in Lenarcic and Valdar paper, mostly
+##   because better or more canonical examples produced similar results.
+##   Clearly, this covers only a tiny subset of available options, but
+##   a purpose of this was to focus on Bayesian and Penalized estimators
+##   which had a sparse setting, and to look specifically in Type 1 Type 2 
+##   performance when the Beta versus noise setting was .25 up to 2.5.
+##   All of these would be R packages with implementations sufficient for single
+##   thread analyses, and no need for CUDA or multi-thread to compete. At the
+##   time of the TwoSimR5 development (2010-2016), most methods fell into this category.
+##
+##   While it is hopeful that code like these simulations could help other
+##    projects doing simulation performance tests in some other region of
+##    the p,n,k,sigma,Beta,Cov(X), etc. choices every group likely has
+##    a different region of interest and specialty, and TwoSimR5 seems
+##    to demonstrate a role for all of these estimators, depending on the
+##    location of noise space one belongs to, as well as the amount of prior
+##    information one can come into the experiment holding.
+##
+##    Helper File for 221 project
+##
+##    This file corrects issues in TwoLasso package "SimForMe2" and represents
+##      a fair testing situation for producing Stodden plots comparing TwoLasso
+##      estimators to LARS estimates
+##
+##    For the most part you will only be using 
+##      "GenerateLarsFixed" and "GenerateLimitLasso"
+##      estimates and plotting to graphs.  However the function
+##                       "SimulateCompare()"
+##      gives a method for generating a table rating performance of
+##      all of the LimitLasso estimators.
+##    
+##   SimMeData is a function at the end that generates data to rate LimitLasso
+##     and TwoLasso against each other
+##
+##   Key inputs are a function "CorrelationXmatrix" which generates a 
+##     Correlation matrix.  Choose one of CorrelationXmatrix1 or
+##     CorrleationXmatrix2, and consider reasonable inputs.
+##     DefaultCorrelationXmatrix is set yere to CorrelationXmatrix1
+##     with an input of PosCorr = .3
+##
+##   Generating the Betas vector comes from a function declared
+##     "GenerateBetaVec".  Choose one of the GenerateBetaVec functions
+##     from GenerateBetaVec1, GenerateBetaVec2, GenerateBetaVec3
+##     default is GenerateBetaVec2
+##
+##   An issue is that I've discovered some programming issue in underlying 
+##     C code.  Though the main algorithms run as I intended them to,
+##     I wrote my own helper version of the LARS algorithm in the function
+##     LarsCC2() which is in desperate need of Lapack optimizing.  I'll be
+##     working on an update of the underlying package C++ code for the next
+##     few weeks.  So depending on how the preliminary results come out on this
+##     assignment, the best runs will get into the next package update,
+##     possibly getting in a publication.
+##
+##   
+
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.  
+
+###############################################################################
+
 ##
 ##
 

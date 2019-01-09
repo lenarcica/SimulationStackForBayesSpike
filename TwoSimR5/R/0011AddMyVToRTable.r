@@ -1,3 +1,36 @@
+################################################################################
+## 0011AddMyVToRTable.r
+##   Manipulate an RData to save results of a simulation for TwoSimR5 package
+##
+##     (c) 2009-2019 Alan Lenarcic
+##     The code was written to support simulations for Lenarcic and Valdar methods
+##      paper.
+##
+##   Here "MyV" is the result of a simulation, usually L1, L2, Type1, Type2 Error
+##    and runtime estimates.  Since the LSF server UNC Killdevil is the
+##    designed target for deployment, and since any given R package or estimator
+##    could fail or run out of memory or time, a try-catch framework is
+##    necessary to save results of simulations in a controlled matter to disk.
+##
+##
+
+## LICENSE INFO: R CODE
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, TwoSimR5 code is predominantly built around running existing 
+#  selector impleentations which exist as R packages, most of which have
+#  a GNU license.
 AddMyVToRDataTable <- function(OnFunction = OnFunction,
        RDataTableOutName, MyV,
        PiD, AlreadyLocked=FALSE, verbose=0) {

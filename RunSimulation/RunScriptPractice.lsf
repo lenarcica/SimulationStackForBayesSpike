@@ -1,0 +1,12 @@
+
+#BSUB -u alenarc@med.unc.edu
+
+#BSUB -M 20 
+#BSUB -o /netscr/alenarc/TwoSimR5Print/ShowOutFromTests.out
+#BSUB -e /netscr/alenarc/TwoSimR5Print/ShowOutFromTests.err
+#BSUB -q week 
+#BSUB -J "BayesScriptPractice[3-42]"
+
+PARAMFILE=LongerTestsTabPaper.R
+
+bash ~/TR5Script//RunAugust2013//N500pG2000kG6sigp5piSV3sigSV3/RBayesAlgorithmGroupLongTestn500p10000${LSB_JOBINDEX}.txt

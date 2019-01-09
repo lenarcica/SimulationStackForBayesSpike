@@ -1,9 +1,27 @@
 #######################################################################################
 #######################################################################################
-###  This code is for making Latex demonstration table summaries of simulation output
+###  AllComparisonRCodeFunctions.r
+###  (c) 2009 Alan Lenarcic
+###     Code written for Edoardo Airoldi Lab, Harvard
+###
+###  This code is not usually used in future work.  It was an attempt to print out
+###   formatted Latex Tables with proper formatting of key estimators as used
+###   in Lenarcic 2009 thesis.  
+###
+#### This code is for making Latex demonstration table summaries of simulation output
 ###
 ###
 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  A copy of the GNU General Public License is available at
+#  https://www.R-project.org/Licenses/
+#
+#  Note, Comparisonr Code functions is probably undesired in any library
+#    and is really only valuable as reference.
 
 #########################################################################################
 ###
